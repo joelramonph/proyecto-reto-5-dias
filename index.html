@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío 5 Días: Mi Primer Proyecto Tech desde Casa | Robótica & Programación</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        whatsapp: '#25D366'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
+                    },
+                    keyframes: {
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-border {
+            background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6dbe45);
+            background-size: 300% 300%;
+            animation: animatedgradient 4s ease infinite;
+        }
+        @keyframes animatedgradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .vsl-shadow {
+            box-shadow: 0 20px 50px -10px rgba(37, 99, 235, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Sticky Top Urgency Banner -->
+    <div class="bg-gradient-to-r from-red-600 via-amber-600 to-red-600 text-white text-xs md:text-sm font-semibold py-2.5 px-4 text-center fixed top-0 left-0 right-0 z-50 shadow-md flex items-center justify-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
+        <span>🔴 ÚLTIMOS CUPOS DISPONIBLES EN VENEZUELA: La oferta de $7 USD vence en:</span>
+        <div id="topTimer" class="bg-black/40 px-2.5 py-0.5 rounded text-amber-300 font-mono font-bold tracking-wider">
+            14:59
+        </div>
+        <a href="#checkout" class="hidden sm:inline-block bg-white text-red-700 px-3 py-0.5 rounded-full font-bold hover:bg-amber-100 transition text-xs">
+            Asegurar Cupo
+        </a>
+    </div>
+
+    <!-- Main Container Wrapper -->
+    <div class="pt-10">
+
+        <!-- SECTION: HERO & VSL -->
+        <header class="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 pt-8 pb-16 border-b border-slate-800">
+            <!-- Background Glow Effects -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-10 right-10 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+                
+                <!-- Venezuelan Target Badge -->
+                <div class="flex justify-center mb-4">
+                    <span class="inline-flex items-center gap-2 bg-slate-800/90 border border-amber-500/30 text-amber-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium shadow-inner">
+                        <span class="text-base">🇻🇪</span> Exclusivo para Padres y Jóvenes en Venezuela (12 a 18 años)
+                    </span>
+                </div>
+
+                <!-- Main Hook / Headline -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center text-white leading-tight sm:leading-tight mb-4 tracking-tight">
+                    Transforma la <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500">Adicción a las Pantallas</span> de tu Hijo en su Primera Habilidad Tecnológica en solo 5 Días
+                </h1>
+
+                <!-- Subheadline / High-Converting Promise -->
+                <p class="text-base sm:text-xl text-slate-300 text-center max-w-3xl mx-auto mb-8 font-normal leading-relaxed">
+                    Descubre el método exacto con el que formamos a la <strong class="text-amber-300 font-semibold">Campeona Mundial de Robótica WRO Singapur 2025</strong>. Aprenderá programación, sensores y circuitos desde casa <span class="underline decoration-amber-400 font-semibold text-white">sin comprar equipos costosos aún</span>.
+                </p>
+
+                <!-- High CTA Button Above Video -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                    <a href="#checkout" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-amber-500/20 hover:scale-105 active:scale-95 transition duration-200 text-center flex items-center justify-center gap-3 group">
+                        <i class="fa-solid fa-bolt text-slate-900 group-hover:rotate-12 transition"></i>
+                        <span>¡QUIERO INSCSCRIBIR A MI HIJO POR SOLO $7 USD!</span>
+                        <i class="fa-solid fa-arrow-right text-slate-900 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+
+                <!-- VSL (Video Sales Letter) Interactive Player Container -->
+                <div class="max-w-4xl mx-auto mb-8">
+                    <div class="relative rounded-2xl overflow-hidden border-2 border-brand-500/40 bg-slate-900 shadow-2xl vsl-shadow group">
+                        
+                        <!-- Top Video Bar -->
+                        <div class="bg-slate-900/90 border-b border-slate-800 px-4 py-2.5 flex items-center justify-between text-xs text-slate-400">
+                            <span class="flex items-center gap-2 font-semibold text-red-500">
+                                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                                PRESENTACIÓN ESPECIAL DE OPORTUNIDAD
+                            </span>
+                            <span id="vslTimerText"><i class="fa-regular fa-clock mr-1"></i> Duración: 4 min 20 seg</span>
+                        </div>
+
+                        <!-- Video Frame Container -->
+                        <div class="relative aspect-video bg-black flex items-center justify-center cursor-pointer" id="vslContainer" onclick="toggleVslPlay()">
+                            
+                            <!-- Video Thumbnail / Simulated Video Canvas -->
+                            <div id="vslThumbnail" class="absolute inset-0 bg-cover bg-center flex flex-col items-center justify-center p-6 text-center" style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.7), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop');">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-400 flex items-center justify-center text-slate-950 text-3xl sm:text-4xl shadow-xl shadow-amber-500/30 group-hover:scale-110 transition duration-300">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                                <h3 class="mt-4 text-white text-lg sm:text-2xl font-bold max-w-xl">
+                                    "Mira cómo tu hijo puede pasar de consumidor pasivo de juegos a CREADOR en 5 días"
+                                </h3>
+                                <p class="text-amber-400 text-xs sm:text-sm font-semibold mt-2 bg-slate-900/80 px-3 py-1 rounded-full border border-amber-500/30">
+                                    🔊 HAZ CLIC PARA ACTIVAR EL AUDIO Y REPRODUCIR
+                                </p>
+                            </div>
+
+                            <!-- Interactive VSL Video Player Element -->
+                            <video id="vslVideo" class="w-full h-full object-cover hidden" poster="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop">
+                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                                Tu navegador no soporta el reproductor de video.
+                            </video>
+
+                            <!-- Overlay Player Controls -->
+                            <div id="vslControls" class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent flex items-center justify-between text-white hidden">
+                                <button onclick="event.stopPropagation(); toggleVslPlay()" class="text-amber-400 hover:text-amber-300 text-xl">
+                                    <i id="vslPlayIcon" class="fa-solid fa-pause"></i>
+                                </button>
+                                <div class="w-full mx-4 bg-slate-700 h-2 rounded-full overflow-hidden cursor-pointer" onclick="event.stopPropagation(); seekVsl(event)">
+                                    <div id="vslProgressBar" class="bg-gradient-to-r from-amber-500 to-yellow-400 h-full w-0 transition-all duration-200"></div>
+                                </div>
+                                <span id="vslCurrentTime" class="text-xs font-mono text-slate-300">00:00</span>
+                            </div>
+                        </div>
+
+                        <!-- VSL Bottom Note -->
+                        <div class="bg-slate-900/90 px-4 py-3 border-t border-slate-800 text-center text-xs sm:text-sm text-slate-300">
+                            ⭐ <strong class="text-amber-300">Garantía de Atención Directa:</strong> Clases prácticas explicadas paso a paso por profesores venezolanos para jóvenes de nuestro país.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Anchor & Trust Badges -->
+                <div class="text-center">
+                    <div class="inline-flex items-center gap-3 bg-slate-900 border border-slate-800 px-6 py-3 rounded-2xl shadow-lg mb-4">
+                        <span class="text-slate-400 text-sm line-through">Precio Regular: $35 USD</span>
+                        <span class="text-2xl sm:text-3xl font-black text-amber-400">HOY: $7 USD</span>
+                        <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold px-2 py-0.5 rounded">80% OFF</span>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center items-center gap-6 text-slate-400 text-xs sm:text-sm">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-400"></i> Pago Seguro</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-mobile-screen text-emerald-400"></i> Pago Móvil / Zelle / Zinli</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-emerald-400"></i> Soporte por WhatsApp</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- SECTION: SUBHERO / PAIN POINTS (Identificación con el Dolor) -->
+        <section class="py-16 bg-slate-900 border-b border-slate-800">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-amber-400 text-xs sm:text-sm font-bold tracking-widest uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                        ¿Te Identificas Con Esta Situación?
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-4">
+                        ¿Sientes que tu hijo está desperdiciando su potencial frente a las pantallas?
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mt-3">
+                        En la Venezuela actual, la educación tradicional se queda corta en tecnología avanzada, y la mayoría de los jóvenes pasan horas consumiendo contenido sin aprender una habilidad del futuro.
+                    </p>
+                </div>
+
+                <!-- Pain Points Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Pain Card 1 -->
+                    <div class="bg-slate-950/80 border border-red-500/20 p-6 rounded-2xl relative overflow-hidden group hover:border-red-500/40 transition">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 text-xl shrink-0">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-2">Horas en Juegos y Redes sin Retorno</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Pasa tardes enteras en Roblox, Free Fire o TikTok. Te preocupa que no desarrolle lógica, disciplina ni habilidades creativas que realmente le sirvan para su futuro laboral.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pain Card 2 -->
+                    <div class="bg-slate-950/80 border border-red-500/20 p-6 rounded-2xl relative overflow-hidden group hover:border-red-500/40 transition">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 text-xl shrink-0">
+                                <i class="fa-solid fa-school-lock"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-2">Educación Escolar Desactualizada</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    En los colegios la computación se limita a Word o PowerPoint. No les enseñan a programar, no conocen sensores ni la lógica de la inteligencia artificial o la robótica.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pain Card 3 -->
+                    <div class="bg-slate-950/80 border border-red-500/20 p-6 rounded-2xl relative overflow-hidden group hover:border-red-500/40 transition">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 text-xl shrink-0">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-2">Miedo a Comprar Equipos Costosos</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Te da temor gastar $150 o $300 USD en un kit de robótica o un curso presencial para que luego a las dos semanas tu hijo pierda el interés y el dinero quede archivado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pain Card 4 -->
+                    <div class="bg-slate-950/80 border border-red-500/20 p-6 rounded-2xl relative overflow-hidden group hover:border-red-500/40 transition">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 text-xl shrink-0">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-2">Desconfianza y Miedo a Estafas Online</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Has visto promociones de cursos por internet donde pagas y nunca te atienden o te envían videos viejos sin un profesor real que responda las dudas de tu hijo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Solution Transition Banner -->
+                <div class="mt-12 bg-gradient-to-r from-brand-900 to-slate-900 border border-brand-500/30 p-6 sm:p-8 rounded-2xl text-center">
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">
+                        💡 Existe una manera de PROBAR su talento real por solo $7 USD
+                    </h3>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto">
+                        Por eso creamos el <strong class="text-amber-300">"Desafío 5 Días"</strong>: un programa práctico de entrada de bajo riesgo, con acompañamiento diario por WhatsApp, donde tu hijo creará juegos y robots virtuales en solo 5 días.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: AUTHORITY & WHY TRUST US (Autoridad) -->
+        <section class="py-16 bg-slate-950 border-b border-slate-800 relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Authority Image / Badge Side -->
+                    <div class="lg:col-span-5 flex flex-col items-center">
+                        <div class="relative w-full max-w-md rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-2xl bg-slate-900">
+                            <img src="assets/stephasingapur.jpeg" alt="Selección Venezolana de Robótica en Singapur" class="w-full h-80 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 border border-amber-500/30 p-4 rounded-xl text-center">
+                                <span class="text-amber-400 font-extrabold text-sm block">🏆 CAMPEONATO MUNDIAL WRO SINGAPUR 2025</span>
+                                <span class="text-slate-300 text-xs">Formadores de la Selección Juvenil de Robótica</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Authority Text Side -->
+                    <div class="lg:col-span-7">
+                        <span class="text-amber-400 text-xs sm:text-sm font-bold tracking-widest uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                            ¿Por Qué Somos Autoridad En Esto?
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-3 mb-4">
+                            Metodología Probada en las Olimpiadas Mundiales de Robótica
+                        </h2>
+                        
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                            No somos teóricos ni improvisados. Nuestro equipo está liderado por el docente que preparó a su propia hija hasta alcanzar el título de <strong class="text-amber-300">Campeona Mundial en la WRO (World Robot Olympiad) Singapur 2025</strong>.
+                        </p>
+
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                <span class="text-slate-300 text-sm"><strong class="text-white">Acompañamiento Real:</strong> No te dejamos solo con videos grabados. Hay un profesor corrigiendo los ejercicios por grupo privado de WhatsApp.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                <span class="text-slate-300 text-sm"><strong class="text-white">Simuladores Virtuales Gratuitos:</strong> Usamos Tinkercad, Scratch y MakeCode. Tu hijo no tiene que comprar tarjetas ni motores costosos para comenzar.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                <span class="text-slate-300 text-sm"><strong class="text-white">Cero Riesgo de Estafa:</strong> Pagas una fracción mínima ($7 USD o al cambio oficial), recibes acceso inmediato y verificas la calidad antes de considerar cualquier kit físico.</span>
+                            </div>
+                        </div>
+
+                        <a href="#checkout" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-amber-300 font-bold px-5 py-3 rounded-xl text-sm transition">
+                            <span>Asegurar mi cupo de $7 USD</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: STEP-BY-STEP ROADMAP (Ruta de Trabajo Día por Día) -->
+        <section class="py-16 bg-slate-900 border-b border-slate-800">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-amber-400 text-xs sm:text-sm font-bold tracking-widest uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                        Paso a Paso Transparente
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-3">
+                        La Ruta de Trabajo de 5 Días
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mt-2">
+                        Videos cortos de 5 a 10 minutos al día + reto práctico supervisado.
+                    </p>
+                </div>
+
+                <!-- Day-by-Day Timeline Cards -->
+                <div class="space-y-6">
+                    
+                    <!-- Day 1 -->
+                    <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-brand-500/50 transition">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-500 text-white font-black text-xl flex flex-col items-center justify-center shrink-0 shadow-lg">
+                            <span>DÍA</span>
+                            <span class="text-2xl">01</span>
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Fundamentos Didácticos</span>
+                            <h3 class="text-xl font-bold text-white mt-0.5 mb-2">Lógica de Programación y Mi Primer Minijuego Interactivo</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Entenderá cómo "piensa" una computadora. Mediante bloques intuitivos creará sus primeros personajes animando un videojuego real en su PC o teléfono.
+                            </p>
+                        </div>
+                        <div class="shrink-0 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-400 font-mono">
+                            <i class="fa-solid fa-code text-amber-400 mr-1"></i> Scratch / MakeCode
+                        </div>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-brand-500/50 transition">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-600 to-amber-500 text-slate-950 font-black text-xl flex flex-col items-center justify-center shrink-0 shadow-lg">
+                            <span>DÍA</span>
+                            <span class="text-2xl">02</span>
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Robótica Virtual</span>
+                            <h3 class="text-xl font-bold text-white mt-0.5 mb-2">Conociendo Sensores y Motores Simulados</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Tu hijo descubrirá cómo los robots perciben el mundo: sensores de ultrasonido para distancia, sensores de luz y servomotores usando simuladores online.
+                            </p>
+                        </div>
+                        <div class="shrink-0 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-400 font-mono">
+                            <i class="fa-solid fa-robot text-amber-400 mr-1"></i> Simulador 3D
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-brand-500/50 transition">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-500 text-white font-black text-xl flex flex-col items-center justify-center shrink-0 shadow-lg">
+                            <span>DÍA</span>
+                            <span class="text-2xl">03</span>
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Hardware Digital</span>
+                            <h3 class="text-xl font-bold text-white mt-0.5 mb-2">Montaje de un Circuito Digital Simulado</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Armará su primer circuito en la pantalla: encender luces LED, programar zumbadores de alarmas y medir voltaje sin peligro de quemar componentes.
+                            </p>
+                        </div>
+                        <div class="shrink-0 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-400 font-mono">
+                            <i class="fa-solid fa-bolt text-amber-400 mr-1"></i> Tinkercad Circuits
+                        </div>
+                    </div>
+
+                    <!-- Day 4 -->
+                    <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-brand-500/50 transition">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-purple-500 text-white font-black text-xl flex flex-col items-center justify-center shrink-0 shadow-lg">
+                            <span>DÍA</span>
+                            <span class="text-2xl">04</span>
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Reto Integrador</span>
+                            <h3 class="text-xl font-bold text-white mt-0.5 mb-2">Programando el Cerebro de un Robot Virtual</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Unirá código + circuitos para que su robot evite obstáculos automáticamente en la computadora. Verás la emoción de tu hijo al lograr su primer reto autónomo.
+                            </p>
+                        </div>
+                        <div class="shrink-0 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-400 font-mono">
+                            <i class="fa-solid fa-brain text-amber-400 mr-1"></i> Algoritmos Autónomos
+                        </div>
+                    </div>
+
+                    <!-- Day 5 -->
+                    <div class="bg-gradient-to-r from-slate-950 via-amber-950/20 to-slate-950 border-2 border-amber-500/50 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-6 shadow-xl">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 font-black text-xl flex flex-col items-center justify-center shrink-0 shadow-lg">
+                            <span>DÍA</span>
+                            <span class="text-2xl">05</span>
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-xs font-extrabold text-amber-400 uppercase tracking-wider">Cierre & Premiación</span>
+                            <h3 class="text-xl font-bold text-white mt-0.5 mb-1">Muestra de Proyectos + Demostración del Kit Físico</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Reconocimiento digital por completar el reto. Demostración en vivo del Kit Físico "Robot en Caja" y revelación de la Guía de Olimpiadas WRO Singapur 2025. <strong class="text-amber-300 block mt-1">🎁 NOTA: Los $7 USD invertidos hoy se descuentan 100% si decides adquirir el Kit Físico en el futuro.</strong>
+                            </p>
+                        </div>
+                        <div class="shrink-0 bg-amber-500/20 px-3 py-1.5 rounded-lg border border-amber-500/40 text-xs text-amber-300 font-bold">
+                            🏆 Graduación Virtual
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: MOCKUP & WHAT IS INCLUDED -->
+        <section class="py-16 bg-slate-950 border-b border-slate-800">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Mockup Graphic Representation -->
+                    <div class="lg:col-span-6 order-2 lg:order-1">
+                        <div class="relative p-6 bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl text-center">
+                            <span class="absolute top-4 right-4 bg-emerald-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+                                Acceso Inmediato
+                            </span>
+                            
+                            <!-- Digital Product Graphic Mockup -->
+                            <div class="my-6 bg-gradient-to-b from-slate-800 to-slate-950 p-6 rounded-2xl border border-slate-700/60 shadow-inner">
+                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-3xl">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <h3 class="text-2xl font-black text-white">DESAFÍO 5 DÍAS</h3>
+                                <p class="text-amber-400 text-sm font-semibold mt-1">Mi Primer Proyecto Tech desde Casa</p>
+                                
+                                <div class="mt-6 space-y-2 text-left text-xs sm:text-sm text-slate-300">
+                                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 flex items-center justify-between">
+                                        <span><i class="fa-solid fa-video text-brand-400 mr-2"></i> 5 Módulos en Video HD</span>
+                                        <span class="text-slate-500">Valor $15</span>
+                                    </div>
+                                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 flex items-center justify-between">
+                                        <span><i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i> Grupo de Soporte Diario</span>
+                                        <span class="text-slate-500">Valor $10</span>
+                                    </div>
+                                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 flex items-center justify-between">
+                                        <span><i class="fa-solid fa-certificate text-amber-400 mr-2"></i> Certificado de Participación</span>
+                                        <span class="text-slate-500">Valor $10</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <span class="text-xs text-slate-400 block mb-1">VALOR TOTAL ACUMULADO: <span class="line-through">$35 USD</span></span>
+                                <span class="text-3xl font-black text-amber-400">¡HOY SOLO $7 USD!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary & Target Profile -->
+                    <div class="lg:col-span-6 order-1 lg:order-2">
+                        <span class="text-amber-400 text-xs sm:text-sm font-bold tracking-widest uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                            Perfil del Estudiante Ideal
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-3 mb-4">
+                            ¿Para quién es perfecto este Desafío de 5 Días?
+                        </h2>
+                        
+                        <p class="text-slate-300 text-sm sm:text-base mb-6">
+                            Este programa está estructurado minuciosamente para niños y jóvenes entre <strong class="text-white">8 y 16 años</strong> que vivan en Venezuela y cumplan con al menos uno de estos perfiles:
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3 bg-slate-900 p-3.5 rounded-xl border border-slate-800">
+                                <span class="text-xl">🎮</span>
+                                <div class="text-xs sm:text-sm">
+                                    <strong class="text-white block">El Jugador Curioso:</strong>
+                                    Le fascinan los videojuegos y la tecnología, pero necesita canalizar esa curiosidad hacia la creación de software.
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-slate-900 p-3.5 rounded-xl border border-slate-800">
+                                <span class="text-xl">🛠️</span>
+                                <div class="text-xs sm:text-sm">
+                                    <strong class="text-white block">El Inventivo / Armador:</strong>
+                                    Le gusta desarmar juguetes, hacer manualidades o armar piezas de Lego y quiere aprender a darles "vida" con código.
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-slate-900 p-3.5 rounded-xl border border-slate-800">
+                                <span class="text-xl">🧠</span>
+                                <div class="text-xs sm:text-sm">
+                                    <strong class="text-white block">El Joven Visual / Lógico:</strong>
+                                    Aprende mejor haciendo cosas prácticas que escuchando largas clases teóricas.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: SOCIAL PROOF & TESTIMONIALS (Testimonios) -->
+        <section class="py-16 bg-slate-900 border-b border-slate-800">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-amber-400 text-xs sm:text-sm font-bold tracking-widest uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                        Prueba Social Real en Venezuela
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-3">
+                        Lo Que Dicen Padres Que Ya Vivieron El Desafío
+                    </h2>
+                </div>
+
+                <!-- Testimonials Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 text-sm mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed mb-4">
+                                "Mi hijo Carlos de 11 años pasaba todo el día pegado a YouTube. En solo el Día 3 ya me estaba mostrando alarmas que él mismo programó en la computadora. Valen muchísimo más de lo que cuestan esos $7."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-900 flex items-center justify-between">
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Mariana R.</h4>
+                                <span class="text-slate-500 text-xs">Caracas, Venezuela</span>
+                            </div>
+                            <span class="text-emerald-400 text-xs bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Compra Verificada</span>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 text-sm mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed mb-4">
+                                "Tenía miedo por el tema del pago desde Venezuela, pero pagué por Pago Móvil al cambio y me llegó todo directo a WhatsApp. El profesor responde todas las dudas con mucha paciencia."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-900 flex items-center justify-between">
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Ing. Gustavo M.</h4>
+                                <span class="text-slate-500 text-xs">Valencia, Venezuela</span>
+                            </div>
+                            <span class="text-emerald-400 text-xs bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Compra Verificada</span>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 text-sm mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed mb-4">
+                                "Lo que más me gustó es que no tuve que comprar materiales físicos de entrada. Mi hija probó su interés primero y ahora sí estamos entusiasmados con el Kit Físico."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-900 flex items-center justify-between">
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Patricia D.</h4>
+                                <span class="text-slate-500 text-xs">Maracaibo, Venezuela</span>
+                            </div>
+                            <span class="text-emerald-400 text-xs bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Compra Verificada</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: GUARANTEES (Garantías) -->
+        <section class="py-12 bg-slate-950 border-b border-slate-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-emerald-950/40 border-2 border-emerald-500/40 p-6 sm:p-8 rounded-3xl flex flex-col sm:flex-row items-center gap-6">
+                    <div class="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-4xl shrink-0">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                            Garantía de Satisfacción "Victoria Rápida"
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Si al llegar al Día 2 del taller consideras que tu hijo no está aprendiendo o no recibe la atención prometida por el profesor en WhatsApp, dinos y te devolvemos tus $7 USD inmediatamente sin preguntas complicadas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CHECKOUT & ORDER BUMPS (Formulario de Compra) -->
+        <section id="checkout" class="py-16 bg-slate-950">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center mb-10">
+                    <span class="bg-amber-500/10 text-amber-300 border border-amber-500/30 text-xs uppercase font-extrabold px-3 py-1 rounded-full">
+                        Formulario Oficial de Inscripción
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-3">
+                        Completa Tu Inscripción al Desafío 5 Días
+                    </h2>
+                    <p class="text-slate-300 text-sm mt-2">
+                        Pagas en bolívares (Pago Móvil al cambio oficial) o dólares (Zelle, Zinli, Efectivo).
+                    </p>
+                </div>
+
+                <!-- Main Interactive Checkout Container -->
+                <div class="bg-slate-900 border-2 border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+                    
+                    <form id="checkoutForm" onsubmit="handleFormSubmit(event)" class="space-y-8">
+                        
+                        <!-- STEP 1: Student & Parent Info -->
+                        <div>
+                            <h3 class="text-lg font-bold text-amber-400 flex items-center gap-2 mb-4 border-b border-slate-800 pb-2">
+                                <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 text-xs flex items-center justify-center font-black">1</span>
+                                Datos del Representante y Estudiante
+                            </h3>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre Completo del Padre/Madre *</label>
+                                    <input type="text" id="parentName" required placeholder="Ej. María Rodríguez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-1">Teléfono WhatsApp de Contacto *</label>
+                                    <input type="tel" id="whatsappPhone" required placeholder="Ej. 0412 1234567" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre del Niño/Joven *</label>
+                                    <input type="text" id="studentName" required placeholder="Ej. Andrés Rodríguez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-1">Edad del Estudiante *</label>
+                                    <select id="studentAge" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
+                                        <option value="">Selecciona la edad</option>
+                                        <option value="8">8 años</option>
+                                        <option value="9">9 años</option>
+                                        <option value="10">10 años</option>
+                                        <option value="11">11 años</option>
+                                        <option value="12">12 años</option>
+                                        <option value="13">13 años</option>
+                                        <option value="14">14 años</option>
+                                        <option value="15">15 años</option>
+                                        <option value="16">16 años</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: Main Product Selection & ORDER BUMPS -->
+                        <div>
+                            <h3 class="text-lg font-bold text-amber-400 flex items-center gap-2 mb-4 border-b border-slate-800 pb-2">
+                                <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 text-xs flex items-center justify-center font-black">2</span>
+                                Selección de Oferta y Aceleradores (Order Bumps)
+                            </h3>
+
+                            <!-- Base Product (Checked & Locked) -->
+                            <div class="bg-slate-950 border-2 border-emerald-500/60 p-4 rounded-2xl mb-6 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" checked disabled class="w-5 h-5 accent-emerald-500 rounded cursor-not-allowed">
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm sm:text-base">🤖 Desafío 5 Días: Mi Primer Proyecto Tech</h4>
+                                        <p class="text-slate-400 text-xs">Acceso completo a clases, retos y grupo de WhatsApp con el profesor.</p>
+                                    </div>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <span class="text-emerald-400 font-extrabold text-lg sm:text-xl">$7 USD</span>
+                                </div>
+                            </div>
+
+                            <!-- ORDER BUMP 1 -->
+                            <div class="gradient-border p-0.5 rounded-2xl mb-4">
+                                <div class="bg-slate-950 p-4 rounded-[14px] flex items-start gap-3 cursor-pointer select-none" onclick="toggleBump('bump1')">
+                                    <input type="checkbox" id="bump1" class="w-5 h-5 mt-1 accent-amber-500 rounded cursor-pointer" onchange="updateCartTotal()">
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <span class="bg-amber-500/20 text-amber-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded border border-amber-500/30">
+                                                ⚡ ACELERADOR OPCIONAL (Ahorra 70%)
+                                            </span>
+                                            <span class="text-amber-400 font-bold text-sm">+$5 USD</span>
+                                        </div>
+                                        <h5 class="text-white font-bold text-sm sm:text-base mt-1">
+                                            Guía Exprés "Python para Niños" + 50 Ejercicios Resueltos
+                                        </h5>
+                                        <p class="text-slate-300 text-xs mt-1 leading-relaxed">
+                                            Acelera el aprendizaje de tu hijo. Una guía PDF ilustrada para que pase de la programación en bloques a su primer código en texto en tiempo récord.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ORDER BUMP 2 -->
+                            <div class="gradient-border p-0.5 rounded-2xl mb-4">
+                                <div class="bg-slate-950 p-4 rounded-[14px] flex items-start gap-3 cursor-pointer select-none" onclick="toggleBump('bump2')">
+                                    <input type="checkbox" id="bump2" class="w-5 h-5 mt-1 accent-amber-500 rounded cursor-pointer" onchange="updateCartTotal()">
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <span class="bg-amber-500/20 text-amber-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded border border-amber-500/30">
+                                                🚀 PACK RECURSOS VIP
+                                            </span>
+                                            <span class="text-amber-400 font-bold text-sm">+$9 USD</span>
+                                        </div>
+                                        <h5 class="text-white font-bold text-sm sm:text-base mt-1">
+                                            Plantillas Pro de Tinkercad + Mentoría Grupal en Vivo por Zoom
+                                        </h5>
+                                        <p class="text-slate-300 text-xs mt-1 leading-relaxed">
+                                            Incluye +20 circuitos listos para importar y 1 sesión de preguntas y respuestas en vivo con el profesor para revisar los circuitos de tu hijo.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ORDER BUMP 3 -->
+                            <div class="gradient-border p-0.5 rounded-2xl mb-4">
+                                <div class="bg-slate-950 p-4 rounded-[14px] flex items-start gap-3 cursor-pointer select-none" onclick="toggleBump('bump3')">
+                                    <input type="checkbox" id="bump3" class="w-5 h-5 mt-1 accent-amber-500 rounded cursor-pointer" onchange="updateCartTotal()">
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <span class="bg-amber-500/20 text-amber-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded border border-amber-500/30">
+                                                🎓 ASESORÍA PERSONALIZADA 1 A 1
+                                            </span>
+                                            <span class="text-amber-400 font-bold text-sm">+$12 USD</span>
+                                        </div>
+                                        <h5 class="text-white font-bold text-sm sm:text-base mt-1">
+                                            Sesión de Diagnóstico Tecnológico 1 a 1 para tu Hijo (15 min)
+                                        </h5>
+                                        <p class="text-slate-300 text-xs mt-1 leading-relaxed">
+                                            El profesor evaluará de forma individual la inclinación vocacional de tu hijo (software vs hardware) y te dará un plan de carrera sugerido.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- STEP 3: Payment Method Selection -->
+                        <div>
+                            <h3 class="text-lg font-bold text-amber-400 flex items-center gap-2 mb-4 border-b border-slate-800 pb-2">
+                                <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 text-xs flex items-center justify-center font-black">3</span>
+                                Selecciona Tu Método de Pago
+                            </h3>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="paymentMethodsGroup">
+                                
+                                <label class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-amber-400 transition text-center payment-option">
+                                    <input type="radio" name="paymentMethod" value="Pago Móvil (Bolívares)" checked class="accent-amber-500">
+                                    <span class="text-xl">🇻🇪</span>
+                                    <span class="text-xs font-bold text-white">Pago Móvil</span>
+                                </label>
+
+                                <label class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-amber-400 transition text-center payment-option">
+                                    <input type="radio" name="paymentMethod" value="Zelle" class="accent-amber-500">
+                                    <span class="text-xl">💵</span>
+                                    <span class="text-xs font-bold text-white">Zelle</span>
+                                </label>
+
+                                <label class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-amber-400 transition text-center payment-option">
+                                    <input type="radio" name="paymentMethod" value="Zinli / Binance" class="accent-amber-500">
+                                    <span class="text-xl">💳</span>
+                                    <span class="text-xs font-bold text-white">Zinli / Binance</span>
+                                </label>
+
+                                <label class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-amber-400 transition text-center payment-option">
+                                    <input type="radio" name="paymentMethod" value="Efectivo en Dólares" class="accent-amber-500">
+                                    <span class="text-xl">💰</span>
+                                    <span class="text-xs font-bold text-white">Efectivo USD</span>
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <!-- LIVE DYNAMIC TOTAL SUMMARY -->
+                        <div class="bg-slate-950 border-2 border-brand-500/40 p-6 rounded-2xl">
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase font-semibold block">Total Estimado a Pagar:</span>
+                                    <div class="flex items-baseline gap-3">
+                                        <span id="displayUsdTotal" class="text-3xl sm:text-4xl font-black text-amber-400">$7.00 USD</span>
+                                        <span id="displayBsTotal" class="text-slate-400 font-mono text-sm">(Aprox. 255.50 Bs)</span>
+                                    </div>
+                                    <span class="text-[11px] text-slate-500 block mt-1">*Tasa de conversión BCV referencial (36.5 Bs/$). Recibirás los datos bancarios exactos por WhatsApp.</span>
+                                </div>
+
+                                <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-whatsapp text-slate-950 font-black text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-emerald-500/20 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-3">
+                                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                    <span>ENVIAR PEDIDO POR WHATSAPP</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: FOOTER -->
+        <footer class="bg-slate-950 border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+            <div class="max-w-5xl mx-auto px-4">
+                <p class="mb-2">© 2026 Academia de Robótica y Tecnología | Campeones WRO Singapur 2025.</p>
+                <p>Todos los derechos reservados. Este sitio no es parte del sitio web de Facebook o Meta Inc.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Floating Toast Proof Notification -->
+    <div id="proofToast" class="fixed bottom-4 left-4 z-50 bg-slate-900 border border-amber-500/40 p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 max-w-xs transform translate-y-24 opacity-0 transition duration-500">
+        <div class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
+            <i class="fa-solid fa-user-check"></i>
+        </div>
+        <div class="text-xs">
+            <strong id="toastTitle" class="text-white block font-bold">Carla M. (Valencia)</strong>
+            <span id="toastSub" class="text-slate-400">Acaba de inscribir a su hijo (10 años)</span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Exchange Rate Reference
+        const BCV_RATE = 36.5; 
+        
+        // Base Price
+        const BASE_PRICE = 7;
+
+        // Bumps Prices
+        const BUMP_PRICES = {
+            bump1: 5,
+            bump2: 9,
+            bump3: 12
+        };
+
+        // DOM elements
+        const parentNameInput = document.getElementById('parentName');
+        const whatsappPhoneInput = document.getElementById('whatsappPhone');
+        const studentNameInput = document.getElementById('studentName');
+        const studentAgeInput = document.getElementById('studentAge');
+        const displayUsdTotal = document.getElementById('displayUsdTotal');
+        const displayBsTotal = document.getElementById('displayBsTotal');
+
+        // Toggle bump checkbox when clicking wrapper
+        function toggleBump(bumpId) {
+            const checkbox = document.getElementById(bumpId);
+            if (event.target.tagName !== 'INPUT') {
+                checkbox.checked = !checkbox.checked;
+            }
+            updateCartTotal();
+        }
+
+        // Dynamic Cart Price Calculator
+        function updateCartTotal() {
+            let totalUSD = BASE_PRICE;
+
+            if (document.getElementById('bump1').checked) totalUSD += BUMP_PRICES.bump1;
+            if (document.getElementById('bump2').checked) totalUSD += BUMP_PRICES.bump2;
+            if (document.getElementById('bump3').checked) totalUSD += BUMP_PRICES.bump3;
+
+            const totalBs = (totalUSD * BCV_RATE).toFixed(2);
+
+            displayUsdTotal.innerText = `$${totalUSD}.00 USD`;
+            displayBsTotal.innerText = `(Aprox. ${totalBs} Bs)`;
+        }
+
+        // Form Submit Handler -> Constructs WhatsApp Payload
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const parentName = parentNameInput.value.trim();
+            const whatsappPhone = whatsappPhoneInput.value.trim();
+            const studentName = studentNameInput.value.trim();
+            const studentAge = studentAgeInput.value;
+            
+            // Payment method
+            const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+            // Checked Bumps
+            const b1 = document.getElementById('bump1').checked;
+            const b2 = document.getElementById('bump2').checked;
+            const b3 = document.getElementById('bump3').checked;
+
+            let totalUSD = BASE_PRICE;
+            let itemsSummary = `• ✅ Desafío 5 Días ($7 USD)\n`;
+
+            if (b1) {
+                totalUSD += BUMP_PRICES.bump1;
+                itemsSummary += `• ⚡ Acelerador Python Kids (+$5 USD)\n`;
+            }
+            if (b2) {
+                totalUSD += BUMP_PRICES.bump2;
+                itemsSummary += `• 🚀 Pack Plantillas Pro + Zoom Mentorship (+$9 USD)\n`;
+            }
+            if (b3) {
+                totalUSD += BUMP_PRICES.bump3;
+                itemsSummary += `• 🎓 Diagnóstico 1 a 1 de 15 min (+$12 USD)\n`;
+            }
+
+            const totalBs = (totalUSD * BCV_RATE).toFixed(2);
+
+            // WhatsApp Message Text
+            const message = `¡Hola Profesor! 👋 Quiero inscribir a mi hijo(a) en el *Desafío 5 Días: Mi Primer Proyecto Tech desde Casa* 🤖🚀
+
+📌 *DATOS DEL REGISTRO:*
+• Representante: ${parentName}
+• WhatsApp: ${whatsappPhone}
+• Estudiante: ${studentName} (${studentAge} años)
+• Método de Pago Preferido: ${selectedPayment}
+
+🛒 *DETALLE DEL PEDIDO:*
+${itemsSummary}
+💰 *TOTAL A PAGAR:* $${totalUSD}.00 USD (Aprox. ${totalBs} Bs)
+
+Quedo a la espera de las instrucciones y datos bancarios para realizar el depósito/pago. ¡Muchas gracias!`;
+
+            const targetPhone = "584120000000"; // Reemplazar con el número real de WhatsApp en producción
+            const encodedUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(message)}`;
+
+            window.open(encodedUrl, '_blank');
+        }
+
+        // VSL Video Player Functionality
+        const vslVideo = document.getElementById('vslVideo');
+        const vslThumbnail = document.getElementById('vslThumbnail');
+        const vslControls = document.getElementById('vslControls');
+        const vslPlayIcon = document.getElementById('vslPlayIcon');
+        const vslProgressBar = document.getElementById('vslProgressBar');
+        const vslCurrentTime = document.getElementById('vslCurrentTime');
+
+        function toggleVslPlay() {
+            if (vslVideo.paused) {
+                vslThumbnail.classList.add('hidden');
+                vslVideo.classList.remove('hidden');
+                vslControls.classList.remove('hidden');
+                vslVideo.play();
+                vslPlayIcon.className = "fa-solid fa-pause";
+            } else {
+                vslVideo.pause();
+                vslPlayIcon.className = "fa-solid fa-play";
+            }
+        }
+
+        vslVideo.addEventListener('timeupdate', () => {
+            if (!vslVideo.duration) return;
+            const percentage = (vslVideo.currentTime / vslVideo.duration) * 100;
+            vslProgressBar.style.width = `${percentage}%`;
+
+            const mins = Math.floor(vslVideo.currentTime / 60);
+            const secs = Math.floor(vslVideo.currentTime % 60);
+            vslCurrentTime.innerText = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        });
+
+        function seekVsl(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickPosition = (e.clientX - rect.left) / rect.width;
+            vslVideo.currentTime = clickPosition * vslVideo.duration;
+        }
+
+        // Countdown Timer Logic
+        function startCountdown() {
+            let duration = 14 * 60 + 59; // 14 mins 59 secs
+            const timerDisplay = document.getElementById('topTimer');
+
+            setInterval(() => {
+                const minutes = Math.floor(duration / 60);
+                const seconds = duration % 60;
+
+                timerDisplay.innerText = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                if (--duration < 0) {
+                    duration = 14 * 60 + 59; // Loop back for urgency simulation
+                }
+            }, 1000);
+        }
+
+        // Simulated Social Proof Toasts
+        const proofNames = [
+            { name: "Carla M. (Valencia)", desc: "Acaba de inscribir a su hijo (10 años)" },
+            { name: "Roberto P. (Caracas)", desc: "Aseguró cupo con Pago Móvil" },
+            { name: "Sonia G. (Maracaibo)", desc: "Agregó el Acelerador Python Kids" },
+            { name: "José L. (Barquisimeto)", desc: "Completó inscripción de su hija" }
+        ];
+
+        function showSocialProof() {
+            const toast = document.getElementById('proofToast');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastSub = document.getElementById('toastSub');
+
+            let index = 0;
+
+            setInterval(() => {
+                const current = proofNames[index];
+                toastTitle.innerText = current.name;
+                toastSub.innerText = current.desc;
+
+                toast.classList.remove('translate-y-24', 'opacity-0');
+
+                setTimeout(() => {
+                    toast.classList.add('translate-y-24', 'opacity-0');
+                }, 4000);
+
+                index = (index + 1) % proofNames.length;
+            }, 10000);
+        }
+
+        // Initialize on Load
+        window.onload = function() {
+            startCountdown();
+            showSocialProof();
+            updateCartTotal();
+        };
+    </script>
+</body>
+</html>
