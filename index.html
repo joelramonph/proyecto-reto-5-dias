@@ -835,10 +835,10 @@
                                     <span class="text-[11px] text-slate-500 block mt-1">*Tasa de conversión BCV referencial (854.46 Bs/$). Recibirás los datos bancarios exactos por WhatsApp.</span>
                                 </div>
 
-                                <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-whatsapp text-slate-950 font-black text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-emerald-500/20 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-3">
+                                <a href="https://wa.link/gzykog" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-whatsapp text-slate-950 font-black text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-emerald-500/20 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-3">
                                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                                     <span>ENVIAR PEDIDO POR WHATSAPP</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
 
@@ -966,8 +966,7 @@ ${itemsSummary}
 
 Quedo a la espera de las instrucciones y datos bancarios para realizar el depósito/pago. ¡Muchas gracias!`;
 
-            const targetPhone = "584120000000"; // Reemplazar con el número real de WhatsApp en producción
-            const encodedUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(message)}`;
+            const encodedUrl = `https://wa.link/gzykog`;
 
             window.open(encodedUrl, '_blank');
         }
