@@ -941,26 +941,24 @@
             if (netBumps) netBumps.value = bumpsList.length > 0 ? bumpsList.join(", ") : "Ninguno";
         }
 
-        // Form Submit Handler -> Constructs WhatsApp Payload
+        // Form Submit Handler -> Constructs WhatsApp Payload & Netlify Backup
         function handleFormSubmit(e) {
             e.preventDefault();
 
+            const form = e.target;
             const parentName = parentNameInput.value.trim();
             const whatsappPhone = whatsappPhoneInput.value.trim();
             const studentName = studentNameInput.value.trim();
             const studentAge = studentAgeInput.value;
-            
-            // Payment method
             const paymentRadio = document.querySelector('input[name="metodo_pago"]:checked') || document.querySelector('input[name="paymentMethod"]:checked');
             const selectedPayment = paymentRadio ? paymentRadio.value : 'Pago Móvil (Bolívares)';
 
-            // Checked Bumps
             const b1 = document.getElementById('bump1').checked;
             const b2 = document.getElementById('bump2').checked;
             const b3 = document.getElementById('bump3').checked;
 
             let totalUSD = BASE_PRICE;
-            let itemsSummary = `• ✅ Desafío 5 Días ($7 USD)\n`;
+            let itemsSummary = `• ✅ Desafío 5 Días ($9 USD)\n`;
 
             if (b1) {
                 totalUSD += BUMP_PRICES.bump1;
@@ -977,24 +975,24 @@
 
             const totalBs = (totalUSD * BCV_RATE).toFixed(2);
 
-            // WhatsApp Message Text
-            const message = `¡Hola Profesor! 👋 Quiero inscribir a mi hijo(a) en el *Desafío 5 Días: Mi Primer Proyecto Tech desde Casa* 🤖🚀
+            // 1. Enviar formulario completo a Netlify Forms en segundo plano (Respaldo 24/7)
+            const formData = new FormData(form);
 
-📌 *DATOS DEL REGISTRO:*
-• Representante: ${parentName}
-• WhatsApp: ${whatsappPhone}
-• Estudiante: ${studentName} (${studentAge} años)
-• Método de Pago Preferido: ${selectedPayment}
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => console.log('Lead y Ticket registrado con éxito en Netlify Forms'))
+            .catch((error) => console.error('Error enviando respaldo a Netlify:', error));
 
-🛒 *DETALLE DEL PEDIDO:*
-${itemsSummary}
-💰 *TOTAL A PAGAR:* $${totalUSD}.00 USD (Aprox. ${totalBs} Bs)
+            // 2. Abrir WhatsApp con el pedido armado
+            const message = `¡Hola Profesor! 👋 Quiero inscribir a mi hijo(a) en el *Desafío 5 Días: Mi Primer Proyecto Tech desde Casa* 🤖🚀\n\n📌 *DATOS DEL REGISTRO:*\n• Representante: ${parentName}\n• WhatsApp: ${whatsappPhone}\n• Estudiante: ${studentName} (${studentAge} años)\n• Método de Pago Preferido: ${selectedPayment}\n\n🛒 *DETALLE DEL PEDIDO:*\n${itemsSummary}\n💰 *TOTAL A PAGAR:* $${totalUSD}.00 USD (Aprox. ${totalBs} Bs)\n\nQuedo a la espera de las instrucciones y datos bancarios para realizar el depósito/pago. ¡Muchas gracias!`;
 
-Quedo a la espera de las instrucciones y datos bancarios para realizar el depósito/pago. ¡Muchas gracias!`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=584120000000&text=${encodedMessage}`;
 
-            const encodedUrl = `https://wa.link/gzykog`;
-
-            window.open(encodedUrl, '_blank');
+            window.open(whatsappUrl, '_blank');
         }
 
         // VSL Video Player Functionality
