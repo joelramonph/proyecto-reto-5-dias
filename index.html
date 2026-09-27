@@ -841,10 +841,10 @@
                                     <span class="text-[11px] text-slate-500 block mt-1">*Tasa de conversión BCV referencial (854.46 Bs/$). Recibirás los datos bancarios exactos por WhatsApp.</span>
                                 </div>
 
-                                <a href="https://wa.link/gzykog" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-whatsapp text-slate-950 font-black text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-emerald-500/20 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-3">
+                                <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-whatsapp text-slate-950 font-black text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-emerald-500/20 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-3 cursor-pointer">
                                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                                     <span>ENVIAR PEDIDO POR WHATSAPP</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
 
@@ -942,7 +942,7 @@
         }
 
         // Form Submit Handler -> Constructs WhatsApp Payload & Netlify Backup
-        function handleFormSubmit(e) {
+        async function handleFormSubmit(e) {
             e.preventDefault();
 
             const form = e.target;
@@ -975,18 +975,20 @@
 
             const totalBs = (totalUSD * BCV_RATE).toFixed(2);
 
-            // 1. Enviar formulario completo a Netlify Forms en segundo plano (Respaldo 24/7)
-            const formData = new FormData(form);
+            // 1. Guardar primero en Netlify Forms
+            try {
+                const formData = new FormData(form);
+                await fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                });
+                console.log('Lead y Ticket guardados con éxito en Netlify');
+            } catch (error) {
+                console.error('Error al guardar en Netlify:', error);
+            }
 
-            fetch('/', {
-                method: 'POST',
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(() => console.log('Lead y Ticket registrado con éxito en Netlify Forms'))
-            .catch((error) => console.error('Error enviando respaldo a Netlify:', error));
-
-            // 2. Abrir WhatsApp con el pedido armado
+            // 2. Abrir WhatsApp tras completar el guardado
             const message = `¡Hola Profesor! 👋 Quiero inscribir a mi hijo(a) en el *Desafío 5 Días: Mi Primer Proyecto Tech desde Casa* 🤖🚀\n\n📌 *DATOS DEL REGISTRO:*\n• Representante: ${parentName}\n• WhatsApp: ${whatsappPhone}\n• Estudiante: ${studentName} (${studentAge} años)\n• Método de Pago Preferido: ${selectedPayment}\n\n🛒 *DETALLE DEL PEDIDO:*\n${itemsSummary}\n💰 *TOTAL A PAGAR:* $${totalUSD}.00 USD (Aprox. ${totalBs} Bs)\n\nQuedo a la espera de las instrucciones y datos bancarios para realizar el depósito/pago. ¡Muchas gracias!`;
 
             const encodedMessage = encodeURIComponent(message);
