@@ -661,7 +661,13 @@
                 <!-- Main Interactive Checkout Container -->
                 <div class="bg-slate-900 border-2 border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
                     
-                    <form id="checkoutForm" onsubmit="handleFormSubmit(event)" class="space-y-8">
+                    <form id="checkoutForm" name="inscripcion-reto-5-dias" data-netlify="true" onsubmit="handleFormSubmit(event)" class="space-y-8">
+                        
+                        <!-- Campos Ocultos para Netlify Forms -->
+                        <input type="hidden" name="form-name" value="inscripcion-reto-5-dias" />
+                        <input type="hidden" id="net_total_usd" name="monto_total_usd" value="$9.00 USD" />
+                        <input type="hidden" id="net_total_bs" name="monto_total_bs" value="0.00 Bs" />
+                        <input type="hidden" id="net_order_bumps" name="order_bumps_comprados" value="Ninguno" />
                         
                         <!-- STEP 1: Student & Parent Info -->
                         <div>
@@ -673,19 +679,19 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre Completo del Padre/Madre *</label>
-                                    <input type="text" id="parentName" required placeholder="Ej. María Rodríguez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
+                                    <input type="text" id="parentName" name="nombre_representante" required placeholder="Ej. María Rodríguez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-300 mb-1">Teléfono WhatsApp de Contacto *</label>
-                                    <input type="tel" id="whatsappPhone" required placeholder="Ej. 0412 1234567" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
+                                    <input type="tel" id="whatsappPhone" name="whatsapp_contacto" required placeholder="Ej. 0412 1234567" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre del Niño/Joven *</label>
-                                    <input type="text" id="studentName" required placeholder="Ej. Andrés Rodríguez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
+                                    <input type="text" id="studentName" name="nombre_estudiante" required placeholder="Ej. Andrés Rodríguez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-300 mb-1">Edad del Estudiante *</label>
-                                    <select id="studentAge" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
+                                    <select id="studentAge" name="edad_estudiante" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-400">
                                         <option value="">Selecciona la edad</option>
                                         <option value="8">8 años</option>
                                         <option value="9">9 años</option>
@@ -797,25 +803,25 @@
                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="paymentMethodsGroup">
                                 
                                 <label class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-amber-400 transition text-center payment-option">
-                                    <input type="radio" name="paymentMethod" value="Pago Móvil (Bolívares)" checked class="accent-amber-500">
+                                    <input type="radio" name="metodo_pago" value="Pago Móvil (Bolívares)" checked class="accent-amber-500">
                                     <span class="text-xl">🇻🇪</span>
                                     <span class="text-xs font-bold text-white">Pago Móvil</span>
                                 </label>
 
                                 <label class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-amber-400 transition text-center payment-option">
-                                    <input type="radio" name="paymentMethod" value="Zelle" class="accent-amber-500">
+                                    <input type="radio" name="metodo_pago" value="Zelle" class="accent-amber-500">
                                     <span class="text-xl">💵</span>
                                     <span class="text-xs font-bold text-white">Zelle</span>
                                 </label>
 
                                 <label class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-amber-400 transition text-center payment-option">
-                                    <input type="radio" name="paymentMethod" value="Zinli / Binance" class="accent-amber-500">
+                                    <input type="radio" name="metodo_pago" value="Zinli / Binance" class="accent-amber-500">
                                     <span class="text-xl">💳</span>
                                     <span class="text-xs font-bold text-white">Zinli / Binance</span>
                                 </label>
 
                                 <label class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-amber-400 transition text-center payment-option">
-                                    <input type="radio" name="paymentMethod" value="Efectivo en Dólares" class="accent-amber-500">
+                                    <input type="radio" name="metodo_pago" value="Efectivo en Dólares" class="accent-amber-500">
                                     <span class="text-xl">💰</span>
                                     <span class="text-xs font-bold text-white">Efectivo USD</span>
                                 </label>
@@ -905,15 +911,34 @@
         // Dynamic Cart Price Calculator
         function updateCartTotal() {
             let totalUSD = BASE_PRICE;
+            let bumpsList = [];
 
-            if (document.getElementById('bump1').checked) totalUSD += BUMP_PRICES.bump1;
-            if (document.getElementById('bump2').checked) totalUSD += BUMP_PRICES.bump2;
-            if (document.getElementById('bump3').checked) totalUSD += BUMP_PRICES.bump3;
+            if (document.getElementById('bump1').checked) {
+                totalUSD += BUMP_PRICES.bump1;
+                bumpsList.push("Acelerador Python Kids (+$5)");
+            }
+            if (document.getElementById('bump2').checked) {
+                totalUSD += BUMP_PRICES.bump2;
+                bumpsList.push("Pack Plantillas Pro + Zoom (+$9)");
+            }
+            if (document.getElementById('bump3').checked) {
+                totalUSD += BUMP_PRICES.bump3;
+                bumpsList.push("Diagnóstico 1a1 (+$12)");
+            }
 
             const totalBs = (totalUSD * BCV_RATE).toFixed(2);
 
             displayUsdTotal.innerText = `$${totalUSD}.00 USD`;
             displayBsTotal.innerText = `(Aprox. ${totalBs} Bs)`;
+
+            // Sincronizar campos ocultos Netlify
+            const netUsd = document.getElementById('net_total_usd');
+            const netBs = document.getElementById('net_total_bs');
+            const netBumps = document.getElementById('net_order_bumps');
+
+            if (netUsd) netUsd.value = `$${totalUSD}.00 USD`;
+            if (netBs) netBs.value = `${totalBs} Bs`;
+            if (netBumps) netBumps.value = bumpsList.length > 0 ? bumpsList.join(", ") : "Ninguno";
         }
 
         // Form Submit Handler -> Constructs WhatsApp Payload
@@ -926,7 +951,8 @@
             const studentAge = studentAgeInput.value;
             
             // Payment method
-            const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked').value;
+            const paymentRadio = document.querySelector('input[name="metodo_pago"]:checked') || document.querySelector('input[name="paymentMethod"]:checked');
+            const selectedPayment = paymentRadio ? paymentRadio.value : 'Pago Móvil (Bolívares)';
 
             // Checked Bumps
             const b1 = document.getElementById('bump1').checked;
